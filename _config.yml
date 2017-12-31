@@ -1,0 +1,25 @@
+title: Chaitanya Pramod Blog
+email: iam@chaitanyapramod.com
+description: >- # this means to ignore newlines until "baseurl:"
+   
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://blog.chaitanyapramod.com"
+twitter_username: ChaitanyaPramod
+github_username: ChaitanyaPramod
+
+# Build settings
+markdown: kramdown
+remote_theme: broccolini/swiss
+social_username: ChaitanyaPramod
+
+# Exclude from processing.
+# The following items will not be processed, by default. Create a custom list
+# to override the default setting.
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - node_modules
+#   - vendor/bundle/
+#   - vendor/cache/
+#   - vendor/gems/
+#   - vendor/ruby/
