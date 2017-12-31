@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://blog.chaitanyapramod.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.chaitanyapramod.com/" rel="alternate" type="text/html" /><updated>2018-01-01T02:42:03+05:30</updated><id>https://blog.chaitanyapramod.com/</id><title type="html">blog.chaitanyapramod.com</title><subtitle></subtitle><entry><title type="html">Viral Loop &amp;amp; the Lean Startup</title><link href="https://blog.chaitanyapramod.com/viral-loop-and-the-lean-startup" rel="alternate" type="text/html" title="Viral Loop &amp; the Lean Startup" /><published>2012-04-23T03:04:00+05:30</published><updated>2012-04-23T03:04:00+05:30</updated><id>https://blog.chaitanyapramod.com/viral-loop-and-the-lean-startup</id><content type="html" xml:base="https://blog.chaitanyapramod.com/viral-loop-and-the-lean-startup">&lt;p&gt;Disruption of internet service can make you do things you wouldn’t have imagined doing anytime soon. For me this weekend, it was reading books that have long been collecting dust on my desk. I read Viral Loop on Saturday and The Lean Startup on Sunday. These bullet points are just a way for me to recall what I learned from these books.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;viral-loop-adam-penenberg&quot;&gt;&lt;a href=&quot;http://www.amazon.com/Viral-Loop-Facebook-Businesses-Themselves/dp/1401323499&quot;&gt;Viral Loop&lt;/a&gt; (Adam Penenberg)&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Viral expansion loop
+    &lt;ul&gt;
+      &lt;li&gt;Viral loop&lt;/li&gt;
+      &lt;li&gt;Viral network&lt;/li&gt;
+      &lt;li&gt;Double viral loop&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Collective curation&lt;/li&gt;
+  &lt;li&gt;Viral businesses
+    &lt;ul&gt;
+      &lt;li&gt;Tupperware and &lt;a href=&quot;https://en.wikipedia.org/wiki/Ponzi_scheme&quot;&gt;Ponzi-scheme&lt;/a&gt; (Pyramid schemes), Netscape&lt;/li&gt;
+      &lt;li&gt;Spreadable product&lt;/li&gt;
+      &lt;li&gt;Virality Coefficient&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Characteristics of Viral loop businesses
+    &lt;ul&gt;
+      &lt;li&gt;Web-based&lt;/li&gt;
+      &lt;li&gt;Free&lt;/li&gt;
+      &lt;li&gt;Organizational technology&lt;/li&gt;
+      &lt;li&gt;Simple concept&lt;/li&gt;
+      &lt;li&gt;Built-in Virality&lt;/li&gt;
+      &lt;li&gt;Extreme fast adoption (Hotmail, Facebook, Skype)&lt;/li&gt;
+      &lt;li&gt;Virality Index (&amp;gt; 1.0)&lt;/li&gt;
+      &lt;li&gt;Predictable growth rates&lt;/li&gt;
+      &lt;li&gt;Network effects (Telephone, IMs, social networks)&lt;/li&gt;
+      &lt;li&gt;Stackability (on another viral business)&lt;/li&gt;
+      &lt;li&gt;Point of nondisplacement&lt;/li&gt;
+      &lt;li&gt;Ultimate saturation&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Viral Marketing
+    &lt;ul&gt;
+      &lt;li&gt;Hotmail (remember &lt;em&gt;Get your free email at Hotmail&lt;/em&gt; in email footer?)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Viral Networks
+    &lt;ul&gt;
+      &lt;li&gt;eBay&lt;/li&gt;
+      &lt;li&gt;PayPal stacked over eBay&lt;/li&gt;
+      &lt;li&gt;MySpace&lt;/li&gt;
+      &lt;li&gt;Flickr and YouTube stacked over MySpace&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Scaling issues of (almost) every viral product
+    &lt;ul&gt;
+      &lt;li&gt;eBay, Twitter&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Long tail vs heavy tail&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;In the end, it just felt like reading stories of a couple of internet successes, but was an interesting read nevertheless.&lt;/p&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;the-lean-startup-eric-ries&quot;&gt;&lt;a href=&quot;http://theleanstartup.com/book&quot;&gt;The Lean Startup&lt;/a&gt; (Eric Ries)&lt;/h2&gt;
+
+&lt;ul&gt;
+  &lt;li&gt;Entrepreneurs are everywhere&lt;/li&gt;
+  &lt;li&gt;Entrepreneurship is management&lt;/li&gt;
+  &lt;li&gt;Incremental innovation vs disruptive innovation&lt;/li&gt;
+  &lt;li&gt;Validated learning&lt;/li&gt;
+  &lt;li&gt;Develop an MVP&lt;/li&gt;
+  &lt;li&gt;Eliminate uncertainity - Test assumptions&lt;/li&gt;
+  &lt;li&gt;Innovation accounting - vanity metrics and actionable metrics&lt;/li&gt;
+  &lt;li&gt;Split testing (A/B testing)&lt;/li&gt;
+  &lt;li&gt;Kanban principle:
+    &lt;ul&gt;
+      &lt;li&gt;Four stages of development of features:
+        &lt;ul&gt;
+          &lt;li&gt;Product backlog&lt;/li&gt;
+          &lt;li&gt;Actively being built&lt;/li&gt;
+          &lt;li&gt;Done (technically)&lt;/li&gt;
+          &lt;li&gt;Being validated&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Argument resolution through split test reports&lt;/li&gt;
+  &lt;li&gt;Three A’s of metrics:
+    &lt;ul&gt;
+      &lt;li&gt;Actionable&lt;/li&gt;
+      &lt;li&gt;Accessible&lt;/li&gt;
+      &lt;li&gt;Auditable&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Pivot: Changing course with one foot anchored to the ground&lt;/li&gt;
+  &lt;li&gt;Different pivots(and the &lt;a href=&quot;https://www.votizen.com/&quot;&gt;Votizen&lt;/a&gt; story):
+    &lt;ul&gt;
+      &lt;li&gt;zoom-in pivot&lt;/li&gt;
+      &lt;li&gt;customer segment pivot&lt;/li&gt;
+      &lt;li&gt;Customer need pivot&lt;/li&gt;
+      &lt;li&gt;platform pivot&lt;/li&gt;
+      &lt;li&gt;plus more&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Pivot or Persevere&lt;/li&gt;
+  &lt;li&gt;Single piece flow &amp;amp; effect of batch size
+    &lt;ul&gt;
+      &lt;li&gt;Large batch spiral death&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Countinuous innovation and continuous deployment&lt;/li&gt;
+  &lt;li&gt;Build-measure-learn cycle and planning it backward&lt;/li&gt;
+  &lt;li&gt;Controlled scaling (Gmail)&lt;/li&gt;
+  &lt;li&gt;The five why’s&lt;/li&gt;
+  &lt;li&gt;User story for every feature&lt;/li&gt;
+  &lt;li&gt;Collect and organize feedback from various forums&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;p&gt;You can find lots of common references between these two books. Overall, it has been an entertaining and meaningful journey. I recommend these books to anyone building a product s/he’s is expecting to take over the world. Now that these two books are off my &lt;a href=&quot;https://www.goodreads.com/review/list/6917881?shelf=to-read&quot;&gt;to-read list&lt;/a&gt;, wondering what to read next… &lt;a href=&quot;http://www.amazon.com/Toyota-Production-System-Beyond-Large-Scale/dp/0915299143&quot;&gt;Toyota Production System&lt;/a&gt; by Taiichi Ohno?&lt;/p&gt;</content><author><name></name></author><category term="books" /><summary type="html">Notes on books Viral Loop and The Lean Startup</summary></entry><entry><title type="html">First Post</title><link href="https://blog.chaitanyapramod.com/first-post" rel="alternate" type="text/html" title="First Post" /><published>2012-02-12T12:30:00+05:30</published><updated>2012-02-12T12:30:00+05:30</updated><id>https://blog.chaitanyapramod.com/first-post</id><content type="html" xml:base="https://blog.chaitanyapramod.com/first-post">&lt;p&gt;Phew, just finished the basic setup of my brand-new blog-site. It took almost five hours to get here. Working with &lt;a href=&quot;http://octopress.org&quot;&gt;Octopress&lt;/a&gt; was fun. Setting up a blog on commandline is way cooler than doing it the wordpress style. Of course, Octopress drew me to itself with its subtitle:&lt;/p&gt;
+
+&lt;blockquote&gt;
+  &lt;p&gt;A blogging framework for hackers.&lt;/p&gt;
+&lt;/blockquote&gt;
+
+&lt;p&gt;I noticed &lt;a href=&quot;http://nimbupani.com/&quot;&gt;Divya Manian&lt;/a&gt; &lt;a href=&quot;http://nimbupani.com/redesign-notes.html&quot;&gt;move her blog to Octopress&lt;/a&gt;. After looking up Octopress and what people feel about it (everyone seems to like it), I decided to try it myself.&lt;/p&gt;
+
+&lt;p&gt;After reading almost all of the &lt;a href=&quot;http://octopress.org&quot;&gt;Octopress&lt;/a&gt; site, I cloned the &lt;a href=&quot;http://github.com/imathis/octopress&quot;&gt;Octopress repo&lt;/a&gt;, setup a &lt;a href=&quot;https://disqus.com&quot;&gt;Disqus&lt;/a&gt; account for the site and plugged in account into the config files. All commands are run through rake, which makes it as easy as:&lt;/p&gt;
+
+&lt;figure class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;language-bash&quot; data-lang=&quot;bash&quot;&gt;rake new_page[page_title]   &lt;span class=&quot;c&quot;&gt;# create a new page  &lt;/span&gt;
+rake new_post[post_title]   &lt;span class=&quot;c&quot;&gt;# create a new post  &lt;/span&gt;
+rake preview                &lt;span class=&quot;c&quot;&gt;# fire up a local server and preview the site at localhost:4000  &lt;/span&gt;
+rake deploy                 &lt;span class=&quot;c&quot;&gt;# Make it live! :)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/figure&gt;
+
+&lt;p&gt;Just now realized that syntax highlighting breaks on Windows. Gotta find a fix for it soon. The Google Fonts were making the pages render slower, so I am thinking if they should be removed. The styles look good, but will spend some time on the CSS and fiddle around with it. Compass and SASS are new to me, more CSS frameworks to learn :(.&lt;/p&gt;
+
+&lt;p&gt;That’s it folks for now, will update with more changes I am planning to the site.&lt;/p&gt;</content><author><name></name></author><summary type="html">My journey setting up a Jekyll blog</summary></entry></feed>
