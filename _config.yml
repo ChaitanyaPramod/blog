@@ -9,7 +9,7 @@ github_username: ChaitanyaPramod
 
 # Build settings
 markdown: kramdown
-destination: doc
+destination: docs
 theme: minimal-mistakes-jekyll
 
 defaults:
