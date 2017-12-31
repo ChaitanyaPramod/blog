@@ -1,4 +1,4 @@
-title: Chaitanya Pramod Blog
+title: blog.chaitanyapramod.com
 email: iam@chaitanyapramod.com
 description: >- # this means to ignore newlines until "baseurl:"
    
@@ -9,17 +9,31 @@ github_username: ChaitanyaPramod
 
 # Build settings
 markdown: kramdown
-remote_theme: broccolini/swiss
-social_username: ChaitanyaPramod
+destination: doc
+theme: minimal-mistakes-jekyll
 
-# Exclude from processing.
-# The following items will not be processed, by default. Create a custom list
-# to override the default setting.
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - node_modules
-#   - vendor/bundle/
-#   - vendor/cache/
-#   - vendor/gems/
-#   - vendor/ruby/
+defaults:
+  -
+    scope:
+      path: ""
+      type: posts
+    values:
+      layout: single
+      author_profile: ture
+      read_time: true
+      comments: true
+      related: true
+
+paginate: 10
+paginate_path: /page:num/
+
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - CNAME
+  - LICENSE
