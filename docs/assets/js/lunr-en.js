@@ -27,6 +27,24 @@ var idx = lunr(function () {
       })
       
     
+      this.add({
+          title: "Partition Complexity",
+          excerpt: "Kent Beck’s thoughts on managing complexity. Gem of an article.\n\nMany useful tips for software development.\n\n(via http://softwareleadweekly.com/issues/262)\n",
+          categories: ["link"],
+          tags: ["link"],
+          id: 2
+      })
+      
+    
+      this.add({
+          title: "Time Management (slides)",
+          excerpt: "Practical and easily applicable tips on managing the scarcest resource in our life\n\n(via http://softwareleadweekly.com/issues/266)\n",
+          categories: ["link"],
+          tags: ["link"],
+          id: 3
+      })
+      
+    
   
 });
 
@@ -53,6 +71,28 @@ var store = [
         "title": "Viral Loop & the Lean Startup",
         "url": "https://blog.chaitanyapramod.com/viral-loop-and-the-lean-startup",
         "excerpt": "Disruption of internet service can make you do things you wouldn’t have imagined doing anytime soon. For me this weekend,...",
+        "teaser":
+          
+            null
+          
+      },
+    
+      
+      {
+        "title": "Partition Complexity",
+        "url": "https://blog.chaitanyapramod.com/partition-complexity",
+        "excerpt": "Kent Beck’s thoughts on managing complexity. Gem of an article.\n\nMany useful tips for software development.\n\n(via http://softwareleadweekly.com/issues/262)\n",
+        "teaser":
+          
+            null
+          
+      },
+    
+      
+      {
+        "title": "Time Management (slides)",
+        "url": "https://blog.chaitanyapramod.com/time-management-slides",
+        "excerpt": "Practical and easily applicable tips on managing the scarcest resource in our life\n\n(via http://softwareleadweekly.com/issues/266)\n",
         "teaser":
           
             null

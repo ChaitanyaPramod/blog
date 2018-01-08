@@ -19,7 +19,7 @@ defaults:
       type: posts
     values:
       layout: single
-      author_profile: ture
+      author_profile: true
       read_time: true
       comments: true
       related: true
