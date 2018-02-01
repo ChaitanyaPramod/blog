@@ -1,1 +1,3 @@
-main: [] 
+main:
+  - title: Website
+    url: https://www.chaitanyapramod.com/

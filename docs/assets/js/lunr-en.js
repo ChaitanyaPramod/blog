@@ -28,7 +28,7 @@ var idx = lunr(function () {
       
     
       this.add({
-          title: "Partition Complexity",
+          title: "Partitioning Complexity",
           excerpt: "Kent Beck’s thoughts on managing complexity. Gem of an article.\n\nMany useful tips for software development.\n\n(via http://softwareleadweekly.com/issues/262)\n",
           categories: ["link"],
           tags: ["link"],
@@ -79,7 +79,7 @@ var store = [
     
       
       {
-        "title": "Partition Complexity",
+        "title": "Partitioning Complexity",
         "url": "https://blog.chaitanyapramod.com/partition-complexity",
         "excerpt": "Kent Beck’s thoughts on managing complexity. Gem of an article.\n\nMany useful tips for software development.\n\n(via http://softwareleadweekly.com/issues/262)\n",
         "teaser":
