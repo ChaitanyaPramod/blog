@@ -54,6 +54,15 @@ var idx = lunr(function () {
       })
       
     
+      this.add({
+          title: "Dagger 2.0 Proposal",
+          excerpt: "Found this beatiful document from Greg Kick making a proposal for fully statically resolved dependency injection framework on Dagger 1...",
+          categories: ["link"],
+          tags: ["link"],
+          id: 5
+      })
+      
+    
   
 });
 
@@ -113,6 +122,17 @@ var store = [
         "title": "Understanding Elasticsearch bottom up",
         "url": "https://blog.chaitanyapramod.com/understanding-es",
         "excerpt": "Understanding Elasticsearch https://www.elastic.co/blog/found-elasticsearch-from-the-bottom-up Inverted index Dictionary contains term and frequency, postings contain documents (IDs) Index term being unit of search...",
+        "teaser":
+          
+            null
+          
+      },
+    
+      
+      {
+        "title": "Dagger 2.0 Proposal",
+        "url": "https://blog.chaitanyapramod.com/dagger-2-proposal",
+        "excerpt": "Found this beatiful document from Greg Kick making a proposal for fully statically resolved dependency injection framework on Dagger 1...",
         "teaser":
           
             null
