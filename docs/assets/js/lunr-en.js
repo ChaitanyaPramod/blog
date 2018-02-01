@@ -45,6 +45,15 @@ var idx = lunr(function () {
       })
       
     
+      this.add({
+          title: "Understanding Elasticsearch bottom up",
+          excerpt: "Understanding Elasticsearch https://www.elastic.co/blog/found-elasticsearch-from-the-bottom-up Inverted index Dictionary contains term and frequency, postings contain documents (IDs) Index term being unit of search...",
+          categories: [],
+          tags: [],
+          id: 4
+      })
+      
+    
   
 });
 
@@ -93,6 +102,17 @@ var store = [
         "title": "Time Management (slides)",
         "url": "https://blog.chaitanyapramod.com/time-management-slides",
         "excerpt": "Practical and easily applicable tips on managing the scarcest resource in our life\n\n(via http://softwareleadweekly.com/issues/266)\n",
+        "teaser":
+          
+            null
+          
+      },
+    
+      
+      {
+        "title": "Understanding Elasticsearch bottom up",
+        "url": "https://blog.chaitanyapramod.com/understanding-es",
+        "excerpt": "Understanding Elasticsearch https://www.elastic.co/blog/found-elasticsearch-from-the-bottom-up Inverted index Dictionary contains term and frequency, postings contain documents (IDs) Index term being unit of search...",
         "teaser":
           
             null
