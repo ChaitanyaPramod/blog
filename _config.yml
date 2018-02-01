@@ -1,16 +1,19 @@
 title: blog.chaitanyapramod.com
+name: Chaitanya Pramod
 email: iam@chaitanyapramod.com
 description: >- # this means to ignore newlines until "baseurl:"
    
-baseurl: "" # the subpath of your site, e.g. /blog
 url: "https://blog.chaitanyapramod.com"
+baseurl: "" # the subpath of your site, e.g. /blog
+
 twitter_username: ChaitanyaPramod
 github_username: ChaitanyaPramod
 
 # Build settings
-markdown: kramdown
 destination: docs
 theme: minimal-mistakes-jekyll
+minimal_mistakes_skin: "contrast"
+title_separator: "|"
 
 defaults:
   -
@@ -19,11 +22,52 @@ defaults:
       type: posts
     values:
       layout: single
-      author_profile: true
-      read_time: true
       comments: true
       related: true
 
 paginate: 10
 paginate_path: /page:num/
+
+comments:
+  provider: disqus
+  disqus:
+    shortname: chaitanyapramod
+
+atom_feed:
+  path: http://feeds.feedburner.com/ChaitanyaPramod
+
+search: true
+search_full_content: true
+
+twitter:
+  username: ChaitanyaPramod
+facebook:
+  username: ChaitanyaPramod
+
+social:
+  name: Chaitanya Pramod
+  links:
+    - https://plus.google.com/+ChaitanyaPramod
+    - https://www.facebook.com/ChaitanyaPramod
+    - https://twitter.com/ChaitanyaPramod
+    - https://www.linkedin.com/in/ChaitanyaPramod/
+    - https://github.com/ChaitanyaPramod
+
+analytics:
+  provider: google-universal
+  google:
+    tracking_id: UA-29122928-4
+
+author:
+  name: Chaitanya Pramod
+  bio: Software Tech Lead with varied experience across tech stacks
+  location: "Bangalore, India"
+  email: iam@chaitanyapramod.com
+  uri: https://www.chaitanyapramod.com/
+  home: https://www.chaitanyapramod.com/
+  facebook: ChaitanyaPramod
+  github: ChaitanyaPramod
+  google_plus: ChaitanyaPramod
+  linkedin: ChaitanyaPramod
+  twitter: ChaitanyaPramod
 
