@@ -1,4 +1,76 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://blog.chaitanyapramod.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.chaitanyapramod.com/" rel="alternate" type="text/html" /><updated>2018-02-01T09:27:03+05:30</updated><id>https://blog.chaitanyapramod.com/</id><title type="html">blog.chaitanyapramod.com</title><subtitle></subtitle><author><name>Chaitanya Pramod</name><email>iam@chaitanyapramod.com</email><uri>https://www.chaitanyapramod.com/</uri></author><entry><title type="html">Time Management (slides)</title><link href="https://blog.chaitanyapramod.com/time-management-slides" rel="alternate" type="text/html" title="Time Management (slides)" /><published>2018-01-08T10:00:00+05:30</published><updated>2018-01-08T10:00:00+05:30</updated><id>https://blog.chaitanyapramod.com/time-management-slides</id><content type="html" xml:base="https://blog.chaitanyapramod.com/time-management-slides">&lt;p&gt;Practical and easily applicable tips on managing the scarcest resource in our life&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.6.2">Jekyll</generator><link href="https://blog.chaitanyapramod.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://blog.chaitanyapramod.com/" rel="alternate" type="text/html" /><updated>2018-02-01T11:00:25+05:30</updated><id>https://blog.chaitanyapramod.com/</id><title type="html">blog.chaitanyapramod.com</title><subtitle></subtitle><author><name>Chaitanya Pramod</name><email>iam@chaitanyapramod.com</email><uri>https://www.chaitanyapramod.com/</uri></author><entry><title type="html">Understanding Elasticsearch bottom up</title><link href="https://blog.chaitanyapramod.com/understanding-es" rel="alternate" type="text/html" title="Understanding Elasticsearch bottom up" /><published>2018-02-01T11:00:00+05:30</published><updated>2018-02-01T11:00:00+05:30</updated><id>https://blog.chaitanyapramod.com/understanding-es-bottom-up</id><content type="html" xml:base="https://blog.chaitanyapramod.com/understanding-es">&lt;h2 id=&quot;understanding-elasticsearch&quot;&gt;Understanding Elasticsearch&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/blog/found-elasticsearch-from-the-bottom-up&quot;&gt;https://www.elastic.co/blog/found-elasticsearch-from-the-bottom-up&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Inverted index
+    &lt;ul&gt;
+      &lt;li&gt;Dictionary contains term and frequency, postings contain documents (IDs)&lt;/li&gt;
+      &lt;li&gt;Index term being unit of search&lt;/li&gt;
+      &lt;li&gt;Prefix searches are efficient, contains searches are not&lt;/li&gt;
+      &lt;li&gt;Modelling problems as prefix searches
+        &lt;ul&gt;
+          &lt;li&gt;Suffix matching - indexing reversed words&lt;/li&gt;
+          &lt;li&gt;Contains matching - split words into n-grams&lt;/li&gt;
+          &lt;li&gt;Decompound compound words&lt;/li&gt;
+          &lt;li&gt;Geo coordinates - as geo hashes&lt;/li&gt;
+          &lt;li&gt;Numerical and time ranges - store values trie-like&lt;/li&gt;
+          &lt;li&gt;etc&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Building indexes
+    &lt;ul&gt;
+      &lt;li&gt;Prioritize
+        &lt;ul&gt;
+          &lt;li&gt;search speed&lt;/li&gt;
+          &lt;li&gt;index compactness&lt;/li&gt;
+          &lt;li&gt;indexing speed&lt;/li&gt;
+          &lt;li&gt;time to be visible&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Small index, faster search&lt;/li&gt;
+      &lt;li&gt;Lucene indexes immutable&lt;/li&gt;
+      &lt;li&gt;Deletions are only marked&lt;/li&gt;
+      &lt;li&gt;Updates = delete + reinsert
+        &lt;ul&gt;
+          &lt;li&gt;Updating is costlier than inserting&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+      &lt;li&gt;Index changes buffered in memory, eventually flushed (lucene) to disk = index segment&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Index segments
+    &lt;ul&gt;
+      &lt;li&gt;Advancements with lucene versions
+        &lt;ul&gt;
+          &lt;li&gt;Lucene &amp;lt;2.3 would make a segment for each doc, which were merged on flush&lt;/li&gt;
+          &lt;li&gt;Nowadays, can make larger in-memory segments&lt;/li&gt;
+          &lt;li&gt;Lucene 4 - one segment per thread - increased indexing performance, concurrent flushing&lt;/li&gt;
+          &lt;li&gt;Flushing segments invalidates field and filter caches (which are per-segment)&lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+  &lt;li&gt;Elasticsearch indexes
+    &lt;ul&gt;
+      &lt;li&gt;ES Index -&amp;gt; 1/more shards with 0/more replicas = lucene indexes -&amp;gt; 1/more index segments&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;hr /&gt;
+
+&lt;h2 id=&quot;elasticsearch-in-production&quot;&gt;Elasticsearch in production&lt;/h2&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;a href=&quot;https://www.elastic.co/blog/found-elasticsearch-in-production&quot;&gt;https://www.elastic.co/blog/found-elasticsearch-in-production&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;Complicated system. Requires
+    &lt;ul&gt;
+      &lt;li&gt;network stability&lt;/li&gt;
+      &lt;li&gt;Huge memory&lt;/li&gt;
+      &lt;li&gt;assumptions that all users are trustworthy (are they?)&lt;/li&gt;
+    &lt;/ul&gt;
+  &lt;/li&gt;
+&lt;/ul&gt;</content><author><name>Chaitanya Pramod</name><email>iam@chaitanyapramod.com</email><uri>https://www.chaitanyapramod.com/</uri></author><summary type="html">Notes from learning the basic working of Elasticsearch</summary></entry><entry><title type="html">Time Management (slides)</title><link href="https://blog.chaitanyapramod.com/time-management-slides" rel="alternate" type="text/html" title="Time Management (slides)" /><published>2018-01-08T10:00:00+05:30</published><updated>2018-01-08T10:00:00+05:30</updated><id>https://blog.chaitanyapramod.com/time-management-slides</id><content type="html" xml:base="https://blog.chaitanyapramod.com/time-management-slides">&lt;p&gt;Practical and easily applicable tips on managing the scarcest resource in our life&lt;/p&gt;
 
 &lt;p&gt;(via http://softwareleadweekly.com/issues/266)&lt;/p&gt;</content><author><name>Chaitanya Pramod</name><email>iam@chaitanyapramod.com</email><uri>https://www.chaitanyapramod.com/</uri></author><category term="link" /><category term="link" /><summary type="html">Practical and easily applicable tips on managing the scarcest resource in our life</summary></entry><entry><title type="html">Partitioning Complexity</title><link href="https://blog.chaitanyapramod.com/partition-complexity" rel="alternate" type="text/html" title="Partitioning Complexity" /><published>2017-12-26T00:30:00+05:30</published><updated>2017-12-26T00:30:00+05:30</updated><id>https://blog.chaitanyapramod.com/partition-complexity</id><content type="html" xml:base="https://blog.chaitanyapramod.com/partition-complexity">&lt;p&gt;Kent Beck’s thoughts on managing complexity. Gem of an article.&lt;/p&gt;
 
