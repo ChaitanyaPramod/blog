@@ -1,7 +1,7 @@
 ---
 title:  "First Post"
 date:   2012-02-12 12:30:00 +0530
-permalink: /first-post
+permalink: /blog/first-post
 excerpt: My journey setting up a Jekyll blog
 ---
 Phew, just finished the basic setup of my brand-new blog-site. It took almost five hours to get here. Working with [Octopress](http://octopress.org) was fun. Setting up a blog on commandline is way cooler than doing it the wordpress style. Of course, Octopress drew me to itself with its subtitle:

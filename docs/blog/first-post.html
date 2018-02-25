@@ -9,28 +9,28 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Partitioning Complexity | blog.chaitanyapramod.com</title>
-<meta name="description" content="Kent Beck’s thoughts on managing complexity. Gem of an article.">
+<!-- begin _includes/seo.html --><title>First Post | Chaitanya Pramod</title>
+<meta name="description" content="My journey setting up a Jekyll blog">
 
 
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="blog.chaitanyapramod.com">
-<meta property="og:title" content="Partitioning Complexity">
-<meta property="og:url" content="https://chaitanyapramod.com/partition-complexity">
+<meta property="og:site_name" content="Chaitanya Pramod">
+<meta property="og:title" content="First Post">
+<meta property="og:url" content="https://chaitanyapramod.com/blog/first-post">
 
 
-  <meta property="og:description" content="Kent Beck’s thoughts on managing complexity. Gem of an article.">
+  <meta property="og:description" content="My journey setting up a Jekyll blog">
 
 
 
 
 
   <meta name="twitter:site" content="@ChaitanyaPramod">
-  <meta name="twitter:title" content="Partitioning Complexity">
-  <meta name="twitter:description" content="Kent Beck’s thoughts on managing complexity. Gem of an article.">
-  <meta name="twitter:url" content="https://chaitanyapramod.com/partition-complexity">
+  <meta name="twitter:title" content="First Post">
+  <meta name="twitter:description" content="My journey setting up a Jekyll blog">
+  <meta name="twitter:url" content="https://chaitanyapramod.com/blog/first-post">
 
   
     <meta name="twitter:card" content="summary">
@@ -41,7 +41,7 @@
 
 
 
-  <meta property="article:published_time" content="2017-12-26T00:30:00+05:30">
+  <meta property="article:published_time" content="2012-02-12T12:30:00+05:30">
 
 
 
@@ -52,7 +52,7 @@
   
 
 
-<link rel="canonical" href="https://chaitanyapramod.com/partition-complexity">
+<link rel="canonical" href="https://chaitanyapramod.com/blog/first-post">
 
 
 
@@ -79,7 +79,7 @@
 <!-- end _includes/seo.html -->
 
 
-<link href="http://feeds.feedburner.com/ChaitanyaPramod" type="application/atom+xml" rel="alternate" title="blog.chaitanyapramod.com Feed">
+<link href="http://feeds.feedburner.com/ChaitanyaPramod" type="application/atom+xml" rel="alternate" title="Chaitanya Pramod Feed">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -126,12 +126,12 @@
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
-        <a class="site-title" href="https://chaitanyapramod.com/">blog.chaitanyapramod.com</a>
+        <a class="site-title" href="https://chaitanyapramod.com/">Chaitanya Pramod</a>
         <ul class="visible-links">
           
             
             <li class="masthead__menu-item">
-              <a href="https://www.chaitanyapramod.com/" >Website</a>
+              <a href="https://chaitanyapramod.com" ></a>
             </li>
           
         </ul>
@@ -161,15 +161,15 @@
   
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Partitioning Complexity">
-    <meta itemprop="description" content="Kent Beck’s thoughts on managing complexity. Gem of an article.">
-    <meta itemprop="datePublished" content="December 26, 2017">
+    <meta itemprop="headline" content="First Post">
+    <meta itemprop="description" content="My journey setting up a Jekyll blog">
+    <meta itemprop="datePublished" content="February 12, 2012">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Partitioning Complexity
+          <h1 class="page__title" itemprop="headline">First Post
 </h1>
           
         </header>
@@ -177,13 +177,27 @@
 
       <section class="page__content" itemprop="text">
         
-        <p>Kent Beck’s thoughts on managing complexity. Gem of an article.</p>
+        <p>Phew, just finished the basic setup of my brand-new blog-site. It took almost five hours to get here. Working with <a href="http://octopress.org">Octopress</a> was fun. Setting up a blog on commandline is way cooler than doing it the wordpress style. Of course, Octopress drew me to itself with its subtitle:</p>
 
-<p>Many useful tips for software development.</p>
+<blockquote>
+  <p>A blogging framework for hackers.</p>
+</blockquote>
 
-<p>(via http://softwareleadweekly.com/issues/262)</p>
+<p>I noticed <a href="http://nimbupani.com/">Divya Manian</a> <a href="http://nimbupani.com/redesign-notes.html">move her blog to Octopress</a>. After looking up Octopress and what people feel about it (everyone seems to like it), I decided to try it myself.</p>
 
-        <div><a href="https://www.facebook.com/notes/kent-beck/one-bite-at-a-time-partitioning-complexity/1716882961677894/" class="btn btn--primary">Direct Link</a></div>
+<p>After reading almost all of the <a href="http://octopress.org">Octopress</a> site, I cloned the <a href="http://github.com/imathis/octopress">Octopress repo</a>, setup a <a href="https://disqus.com">Disqus</a> account for the site and plugged in account into the config files. All commands are run through rake, which makes it as easy as:</p>
+
+<figure class="highlight"><pre><code class="language-bash" data-lang="bash">rake new_page[page_title]   <span class="c"># create a new page  </span>
+rake new_post[post_title]   <span class="c"># create a new post  </span>
+rake preview                <span class="c"># fire up a local server and preview the site at localhost:4000  </span>
+rake deploy                 <span class="c"># Make it live! :)</span></code></pre></figure>
+
+<p>Just now realized that syntax highlighting breaks on Windows. Gotta find a fix for it soon. The Google Fonts were making the pages render slower, so I am thinking if they should be removed. The styles look good, but will spend some time on the CSS and fiddle around with it. Compass and SASS are new to me, more CSS frameworks to learn :(.</p>
+
+<p>That’s it folks for now, will update with more changes I am planning to the site.</p>
+
+
+        
       </section>
 
       <footer class="page__meta">
@@ -192,7 +206,7 @@
 
 
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2017-12-26T00:30:00+05:30">December 26, 2017</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2012-02-12T12:30:00+05:30">February 12, 2012</time></p>
         
       </footer>
 
@@ -201,11 +215,10 @@
       
   <nav class="pagination">
     
-      <a href="https://chaitanyapramod.com/viral-loop-and-the-lean-startup" class="pagination--pager" title="Viral Loop &amp; the Lean Startup
-">Previous</a>
+      <a href="#" class="pagination--pager disabled">Previous</a>
     
     
-      <a href="https://chaitanyapramod.com/time-management-slides" class="pagination--pager" title="Time Management (slides)
+      <a href="https://chaitanyapramod.com/blog/viral-loop-and-the-lean-startup" class="pagination--pager" title="Viral Loop &amp; the Lean Startup
 ">Next</a>
     
   </nav>
@@ -239,7 +252,7 @@
     <h2 class="archive__item-title" itemprop="headline">
       
         <a href="http://www.lettersofnote.com/2011/07/internet-tidal-wave.html">The Internet Tidal Wave
-</a> <a href="https://chaitanyapramod.com/internet-tidal-wave" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+</a> <a href="https://chaitanyapramod.com/blog/internet-tidal-wave" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
       
     </h2>
     
@@ -258,7 +271,7 @@
     <h2 class="archive__item-title" itemprop="headline">
       
         <a href="https://docs.google.com/document/d/1fwg-NsMKYtYxeEWe82rISIHjNrtdqonfiHgp8-PQ7m8/edit">Dagger 2.0 Proposal
-</a> <a href="https://chaitanyapramod.com/dagger-2-proposal" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+</a> <a href="https://chaitanyapramod.com/blog/dagger-2-proposal" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
       
     </h2>
     
@@ -276,7 +289,7 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="https://chaitanyapramod.com/understanding-es" rel="permalink">Understanding Elasticsearch bottom up
+        <a href="https://chaitanyapramod.com/blog/understanding-es" rel="permalink">Understanding Elasticsearch bottom up
 </a>
       
     </h2>
@@ -296,7 +309,7 @@
     <h2 class="archive__item-title" itemprop="headline">
       
         <a href="https://docs.google.com/presentation/d/17K27cBs_dRnW512tJrewP25AHpiUPt7JxUcxjgSxSjs/present">Time Management (slides)
-</a> <a href="https://chaitanyapramod.com/time-management-slides" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+</a> <a href="https://chaitanyapramod.com/blog/time-management-slides" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
       
     </h2>
     
@@ -308,6 +321,7 @@
         
       </div>
     </div>
+  
   
 </div>
 
@@ -380,8 +394,8 @@
     
   <script>
     var disqus_config = function () {
-      this.page.url = "https://chaitanyapramod.com/partition-complexity";  // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = "/partition-complexity"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      this.page.url = "https://chaitanyapramod.com/blog/first-post";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/blog/first-post"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
       var d = document, s = d.createElement('script');

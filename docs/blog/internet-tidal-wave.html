@@ -9,28 +9,28 @@
   <head>
     <meta charset="utf-8">
 
-<!-- begin _includes/seo.html --><title>Understanding Elasticsearch bottom up | blog.chaitanyapramod.com</title>
-<meta name="description" content="Notes from learning the basic working of Elasticsearch">
+<!-- begin _includes/seo.html --><title>The Internet Tidal Wave | Chaitanya Pramod</title>
+<meta name="description" content="Bill Gates’s memo predicting the direction of internet evolution and the peril of not being an internet-player">
 
 
 
 <meta property="og:type" content="article">
 <meta property="og:locale" content="en_US">
-<meta property="og:site_name" content="blog.chaitanyapramod.com">
-<meta property="og:title" content="Understanding Elasticsearch bottom up">
-<meta property="og:url" content="https://chaitanyapramod.com/understanding-es">
+<meta property="og:site_name" content="Chaitanya Pramod">
+<meta property="og:title" content="The Internet Tidal Wave">
+<meta property="og:url" content="https://chaitanyapramod.com/blog/internet-tidal-wave">
 
 
-  <meta property="og:description" content="Notes from learning the basic working of Elasticsearch">
+  <meta property="og:description" content="Bill Gates’s memo predicting the direction of internet evolution and the peril of not being an internet-player">
 
 
 
 
 
   <meta name="twitter:site" content="@ChaitanyaPramod">
-  <meta name="twitter:title" content="Understanding Elasticsearch bottom up">
-  <meta name="twitter:description" content="Notes from learning the basic working of Elasticsearch">
-  <meta name="twitter:url" content="https://chaitanyapramod.com/understanding-es">
+  <meta name="twitter:title" content="The Internet Tidal Wave">
+  <meta name="twitter:description" content="Bill Gates’s memo predicting the direction of internet evolution and the peril of not being an internet-player">
+  <meta name="twitter:url" content="https://chaitanyapramod.com/blog/internet-tidal-wave">
 
   
     <meta name="twitter:card" content="summary">
@@ -41,7 +41,7 @@
 
 
 
-  <meta property="article:published_time" content="2018-02-01T11:00:00+05:30">
+  <meta property="article:published_time" content="2018-02-25T09:00:00+05:30">
 
 
 
@@ -52,7 +52,7 @@
   
 
 
-<link rel="canonical" href="https://chaitanyapramod.com/understanding-es">
+<link rel="canonical" href="https://chaitanyapramod.com/blog/internet-tidal-wave">
 
 
 
@@ -79,7 +79,7 @@
 <!-- end _includes/seo.html -->
 
 
-<link href="http://feeds.feedburner.com/ChaitanyaPramod" type="application/atom+xml" rel="alternate" title="blog.chaitanyapramod.com Feed">
+<link href="http://feeds.feedburner.com/ChaitanyaPramod" type="application/atom+xml" rel="alternate" title="Chaitanya Pramod Feed">
 
 <!-- http://t.co/dKP3o1e -->
 <meta name="HandheldFriendly" content="True">
@@ -126,12 +126,12 @@
   <div class="masthead__inner-wrap">
     <div class="masthead__menu">
       <nav id="site-nav" class="greedy-nav">
-        <a class="site-title" href="https://chaitanyapramod.com/">blog.chaitanyapramod.com</a>
+        <a class="site-title" href="https://chaitanyapramod.com/">Chaitanya Pramod</a>
         <ul class="visible-links">
           
             
             <li class="masthead__menu-item">
-              <a href="https://www.chaitanyapramod.com/" >Website</a>
+              <a href="https://chaitanyapramod.com" ></a>
             </li>
           
         </ul>
@@ -161,15 +161,15 @@
   
 
   <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
-    <meta itemprop="headline" content="Understanding Elasticsearch bottom up">
-    <meta itemprop="description" content="Notes from learning the basic working of Elasticsearch">
-    <meta itemprop="datePublished" content="February 01, 2018">
+    <meta itemprop="headline" content="The Internet Tidal Wave">
+    <meta itemprop="description" content="Bill Gates’s memo predicting the direction of internet evolution and the peril of not being an internet-player">
+    <meta itemprop="datePublished" content="February 25, 2018">
     
 
     <div class="page__inner-wrap">
       
         <header>
-          <h1 class="page__title" itemprop="headline">Understanding Elasticsearch bottom up
+          <h1 class="page__title" itemprop="headline">The Internet Tidal Wave
 </h1>
           
         </header>
@@ -177,81 +177,12 @@
 
       <section class="page__content" itemprop="text">
         
-        <h2 id="understanding-elasticsearch">Understanding Elasticsearch</h2>
-<ul>
-  <li><a href="https://www.elastic.co/blog/found-elasticsearch-from-the-bottom-up">https://www.elastic.co/blog/found-elasticsearch-from-the-bottom-up</a></li>
-  <li>Inverted index
-    <ul>
-      <li>Dictionary contains term and frequency, postings contain documents (IDs)</li>
-      <li>Index term being unit of search</li>
-      <li>Prefix searches are efficient, contains searches are not</li>
-      <li>Modelling problems as prefix searches
-        <ul>
-          <li>Suffix matching - indexing reversed words</li>
-          <li>Contains matching - split words into n-grams</li>
-          <li>Decompound compound words</li>
-          <li>Geo coordinates - as geo hashes</li>
-          <li>Numerical and time ranges - store values trie-like</li>
-          <li>etc</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>Building indexes
-    <ul>
-      <li>Prioritize
-        <ul>
-          <li>search speed</li>
-          <li>index compactness</li>
-          <li>indexing speed</li>
-          <li>time to be visible</li>
-        </ul>
-      </li>
-      <li>Small index, faster search</li>
-      <li>Lucene indexes immutable</li>
-      <li>Deletions are only marked</li>
-      <li>Updates = delete + reinsert
-        <ul>
-          <li>Updating is costlier than inserting</li>
-        </ul>
-      </li>
-      <li>Index changes buffered in memory, eventually flushed (lucene) to disk = index segment</li>
-    </ul>
-  </li>
-  <li>Index segments
-    <ul>
-      <li>Advancements with lucene versions
-        <ul>
-          <li>Lucene &lt;2.3 would make a segment for each doc, which were merged on flush</li>
-          <li>Nowadays, can make larger in-memory segments</li>
-          <li>Lucene 4 - one segment per thread - increased indexing performance, concurrent flushing</li>
-          <li>Flushing segments invalidates field and filter caches (which are per-segment)</li>
-        </ul>
-      </li>
-    </ul>
-  </li>
-  <li>Elasticsearch indexes
-    <ul>
-      <li>ES Index -&gt; 1/more shards with 0/more replicas = lucene indexes -&gt; 1/more index segments</li>
-    </ul>
-  </li>
-</ul>
+        <p>Bill Gates wrote this fascinating memo to his staff in 1995. It predicts the evolution of internet ecosystem, how almost every service would be touched by it and why it was super-important to be an internet player.</p>
 
-<hr />
+<p>via <a href="http://amzn.to/2GGuS2d">Deep Work</a></p>
 
-<h2 id="elasticsearch-in-production">Elasticsearch in production</h2>
-<ul>
-  <li><a href="https://www.elastic.co/blog/found-elasticsearch-in-production">https://www.elastic.co/blog/found-elasticsearch-in-production</a></li>
-  <li>Complicated system. Requires
-    <ul>
-      <li>network stability</li>
-      <li>Huge memory</li>
-      <li>assumptions that all users are trustworthy (are they?)</li>
-    </ul>
-  </li>
-</ul>
 
-        
+        <div><a href="http://www.lettersofnote.com/2011/07/internet-tidal-wave.html" class="btn btn--primary">Direct Link</a></div>
       </section>
 
       <footer class="page__meta">
@@ -260,7 +191,7 @@
 
 
         
-          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-02-01T11:00:00+05:30">February 01, 2018</time></p>
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-02-25T09:00:00+05:30">February 25, 2018</time></p>
         
       </footer>
 
@@ -269,12 +200,11 @@
       
   <nav class="pagination">
     
-      <a href="https://chaitanyapramod.com/time-management-slides" class="pagination--pager" title="Time Management (slides)
+      <a href="https://chaitanyapramod.com/blog/dagger-2-proposal" class="pagination--pager" title="Dagger 2.0 Proposal
 ">Previous</a>
     
     
-      <a href="https://chaitanyapramod.com/dagger-2-proposal" class="pagination--pager" title="Dagger 2.0 Proposal
-">Next</a>
+      <a href="#" class="pagination--pager disabled">Next</a>
     
   </nav>
 
@@ -306,27 +236,8 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
-        <a href="http://www.lettersofnote.com/2011/07/internet-tidal-wave.html">The Internet Tidal Wave
-</a> <a href="https://chaitanyapramod.com/internet-tidal-wave" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
-      
-    </h2>
-    
-    <p class="archive__item-excerpt" itemprop="description">Bill Gates’s memo predicting the direction of internet evolution and the peril of not being an internet-player
-</p>
-  </article>
-</div>
-        
-          
-
-
-
-<div class="grid__item">
-  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
-    
-    <h2 class="archive__item-title" itemprop="headline">
-      
         <a href="https://docs.google.com/document/d/1fwg-NsMKYtYxeEWe82rISIHjNrtdqonfiHgp8-PQ7m8/edit">Dagger 2.0 Proposal
-</a> <a href="https://chaitanyapramod.com/dagger-2-proposal" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+</a> <a href="https://chaitanyapramod.com/blog/dagger-2-proposal" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
       
     </h2>
     
@@ -344,8 +255,27 @@
     
     <h2 class="archive__item-title" itemprop="headline">
       
+        <a href="https://chaitanyapramod.com/blog/understanding-es" rel="permalink">Understanding Elasticsearch bottom up
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Notes from learning the basic working of Elasticsearch
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
         <a href="https://docs.google.com/presentation/d/17K27cBs_dRnW512tJrewP25AHpiUPt7JxUcxjgSxSjs/present">Time Management (slides)
-</a> <a href="https://chaitanyapramod.com/time-management-slides" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+</a> <a href="https://chaitanyapramod.com/blog/time-management-slides" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
       
     </h2>
     
@@ -365,7 +295,7 @@
     <h2 class="archive__item-title" itemprop="headline">
       
         <a href="https://www.facebook.com/notes/kent-beck/one-bite-at-a-time-partitioning-complexity/1716882961677894/">Partitioning Complexity
-</a> <a href="https://chaitanyapramod.com/partition-complexity" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+</a> <a href="https://chaitanyapramod.com/blog/partition-complexity" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
       
     </h2>
     
@@ -450,8 +380,8 @@
     
   <script>
     var disqus_config = function () {
-      this.page.url = "https://chaitanyapramod.com/understanding-es";  // Replace PAGE_URL with your page's canonical URL variable
-      this.page.identifier = "/understanding-es-bottom-up"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+      this.page.url = "https://chaitanyapramod.com/blog/internet-tidal-wave";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/blog/internet-tidal-wave"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
     };
     (function() { // DON'T EDIT BELOW THIS LINE
       var d = document, s = d.createElement('script');
