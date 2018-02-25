@@ -63,6 +63,15 @@ var idx = lunr(function () {
       })
       
     
+      this.add({
+          title: "The Internet Tidal Wave",
+          excerpt: "Bill Gates wrote this fascinating memo to his staff in 1995. It predicts the evolution of internet ecosystem, how almost...",
+          categories: ["link"],
+          tags: ["link"],
+          id: 6
+      })
+      
+    
   
 });
 
@@ -133,6 +142,17 @@ var store = [
         "title": "Dagger 2.0 Proposal",
         "url": "https://blog.chaitanyapramod.com/dagger-2-proposal",
         "excerpt": "Found this beatiful document from Greg Kick making a proposal for fully statically resolved dependency injection framework on Dagger 1...",
+        "teaser":
+          
+            null
+          
+      },
+    
+      
+      {
+        "title": "The Internet Tidal Wave",
+        "url": "https://blog.chaitanyapramod.com/internet-tidal-wave",
+        "excerpt": "Bill Gates wrote this fascinating memo to his staff in 1995. It predicts the evolution of internet ecosystem, how almost...",
         "teaser":
           
             null

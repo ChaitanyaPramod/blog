@@ -96,8 +96,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  jekyll (~> 3.6.2)
-  jekyll-feed (~> 0.6)
   minimal-mistakes-jekyll
 
 BUNDLED WITH
