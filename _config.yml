@@ -25,6 +25,13 @@ defaults:
       comments: true
       related: true
       permalink: /blog/:title
+  -
+    scope:
+      path: ""
+      type: pages
+    values:
+      layout: single
+      author_profile: true
 
 paginate: 10
 paginate_path: /page:num/
@@ -72,3 +79,5 @@ author:
   linkedin: ChaitanyaPramod
   twitter: ChaitanyaPramod
 
+exclude: [CNAME, LICENSE, Gemfile, Gemfile.lock]
+include: [_pages]
