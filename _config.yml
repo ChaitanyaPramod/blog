@@ -24,6 +24,7 @@ defaults:
       layout: single
       comments: true
       related: true
+      permalink: /blog/:title
 
 paginate: 10
 paginate_path: /page:num/
@@ -34,7 +35,7 @@ comments:
     shortname: chaitanyapramod
 
 atom_feed:
-  path: http://feeds.feedburner.com/ChaitanyaPramod
+  path: https://feeds.feedburner.com/ChaitanyaPramod
 
 search: true
 search_full_content: true
@@ -63,8 +64,8 @@ author:
   bio: Software Tech Lead with wide experience across tech stacks
   location: "Bangalore, India"
   email: iam@chaitanyapramod.com
-  uri: https://www.chaitanyapramod.com/
-  home: https://www.chaitanyapramod.com/
+  uri: https://chaitanyapramod.com/
+  home: https://chaitanyapramod.com/
   facebook: ChaitanyaPramod
   github: ChaitanyaPramod
   google_plus: +ChaitanyaPramod

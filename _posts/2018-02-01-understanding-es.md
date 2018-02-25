@@ -1,7 +1,6 @@
 ---
 title: Understanding Elasticsearch bottom up
 date:   2018-02-01 11:00:00 +0530
-permalink: /blog/understanding-es
 excerpt: Notes from learning the basic working of Elasticsearch
 ---
 ## Understanding Elasticsearch
