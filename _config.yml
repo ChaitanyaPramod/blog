@@ -3,7 +3,7 @@ name: Chaitanya Pramod
 email: iam@chaitanyapramod.com
 description: >- # this means to ignore newlines until "baseurl:"
    
-url: "https://blog.chaitanyapramod.com"
+url: "https://chaitanyapramod.com"
 baseurl: "" # the subpath of your site, e.g. /blog
 
 twitter_username: ChaitanyaPramod
@@ -60,7 +60,7 @@ analytics:
 
 author:
   name: Chaitanya Pramod
-  bio: Software Tech Lead with varied experience across tech stacks
+  bio: Software Tech Lead with wide experience across tech stacks
   location: "Bangalore, India"
   email: iam@chaitanyapramod.com
   uri: https://www.chaitanyapramod.com/
