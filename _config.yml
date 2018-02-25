@@ -79,5 +79,5 @@ author:
   linkedin: ChaitanyaPramod
   twitter: ChaitanyaPramod
 
-exclude: [CNAME, LICENSE, Gemfile, Gemfile.lock]
+exclude: [LICENSE, Gemfile, Gemfile.lock]
 include: [_pages]
