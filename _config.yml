@@ -78,6 +78,7 @@ author:
   google_plus: +ChaitanyaPramod
   linkedin: ChaitanyaPramod
   twitter: ChaitanyaPramod
+  steam: ChaitanyaPramod
 
 exclude: [LICENSE, Gemfile, Gemfile.lock]
 include: [_pages]
