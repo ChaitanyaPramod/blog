@@ -1,2 +1,7 @@
 main:
-  - 
+  - title: MDN Search
+    url: https://mdnsearch.chaitanyapramod.com/
+    description: Search MDN Web Docs from Chrome addressbar
+  - title: Findbugs-Android
+    url: https://findbugs-android.chaitanyapramod.com/
+    description: Integrate Findbugs in Android projects easily
