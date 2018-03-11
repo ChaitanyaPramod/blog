@@ -33,4 +33,9 @@ var store = [{
         "excerpt":"Bill Gates wrote this fascinating memo to his staff in 1995. It predicts the evolution of internet ecosystem, how almost every service would be touched by it and why it was super-important to be an internet player.via Deep Work","categories": ["link"],
         "tags": ["link"],
         "url": "https://chaitanyapramod.com/blog/internet-tidal-wave",
+        "teaser":null},{
+        "title": "The Indespensable Document for the Modern Manager",
+        "excerpt":"I love the idea of writing a user guide on oneself. As a manager, you can share your thoughts, expectations, style of communication, personality as relevant for team members. This is extremely scalable and quite valuable to self and team members. Some of the questions from team can be answered right here, thus avoiding synchronous discussions.via Tech Leadership Weekly","categories": ["link"],
+        "tags": ["link, management"],
+        "url": "https://chaitanyapramod.com/blog/indispensable-document-for-modern-manager",
         "teaser":null}]
