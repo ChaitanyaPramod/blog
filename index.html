@@ -1,4 +1,30 @@
 ---
-layout: home
+layout: single
 author_profile: true
+classes: wide
+feature_row:
+    - title: MDN Search
+      image_path: /assets/images/mdn-search.svg
+      excerpt: Search MDN Web Docs from Chrome addressbar directly
+      url: https://mdnsearch.chaitanyapramod.com/
+      btn_class: btn--primary
+      btn_label: Learn More
+    - title: Findbugs-Android
+      image_path: /assets/images/findbugs-android.png
+      excerpt: Gradle plugin to easily integrate Findbugs checks in Android projects
+      url: https://findbugs-android.chaitanyapramod.com/
+      btn_class: btn--primary
+      btn_label: Learn More
 ---
+
+<h2>Projects</h2>
+
+{% include feature_row %}
+
+<h3 class="archive__subtitle">{{ site.data.ui-text[site.locale].recent_posts | default: "Recent Posts" }}</h3>
+
+{% for post in paginator.posts %}
+  {% include archive-single.html %}
+{% endfor %}
+
+{% include paginator.html %}
