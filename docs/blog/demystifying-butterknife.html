@@ -1,0 +1,529 @@
+<!doctype html>
+<!--
+  Minimal Mistakes Jekyll Theme 4.10.0 by Michael Rose
+  Copyright 2013-2018 Michael Rose - mademistakes.com | @mmistakes
+  Free for personal and commercial use under the MIT license
+  https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt
+-->
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8">
+
+<!-- begin _includes/seo.html --><title>Demystifying Butterknife | Chaitanya Pramod</title>
+<meta name="description" content="Walk through of Butterknife codebase">
+
+
+
+<meta property="og:type" content="article">
+<meta property="og:locale" content="en_US">
+<meta property="og:site_name" content="Chaitanya Pramod">
+<meta property="og:title" content="Demystifying Butterknife">
+<meta property="og:url" content="https://chaitanyapramod.com/blog/demystifying-butterknife">
+
+
+  <meta property="og:description" content="Walk through of Butterknife codebase">
+
+
+
+  <meta property="og:image" content="https://chaitanyapramod.com/assets/images/demystifying-butterknife-header.jpg">
+
+
+
+  <meta name="twitter:site" content="@ChaitanyaPramod">
+  <meta name="twitter:title" content="Demystifying Butterknife">
+  <meta name="twitter:description" content="Walk through of Butterknife codebase">
+  <meta name="twitter:url" content="https://chaitanyapramod.com/blog/demystifying-butterknife">
+
+  
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="https://chaitanyapramod.com/assets/images/demystifying-butterknife-header.jpg">
+  
+
+  
+
+
+
+  <meta property="article:published_time" content="2018-03-25T20:00:00+05:30">
+
+
+
+
+
+  
+
+  
+
+
+<link rel="canonical" href="https://chaitanyapramod.com/blog/demystifying-butterknife">
+
+
+
+
+
+
+
+  <script type="application/ld+json">
+    {
+      "@context": "http://schema.org",
+      "@type": "Person",
+      "name": "Chaitanya Pramod",
+      "url": "https://chaitanyapramod.com",
+      "sameAs": ["https://plus.google.com/+ChaitanyaPramod","https://www.facebook.com/ChaitanyaPramod","https://twitter.com/ChaitanyaPramod","https://www.linkedin.com/in/ChaitanyaPramod/","https://github.com/ChaitanyaPramod"]
+    }
+  </script>
+
+
+
+
+
+
+
+<!-- end _includes/seo.html -->
+
+
+<link href="https://feeds.feedburner.com/ChaitanyaPramod" type="application/atom+xml" rel="alternate" title="Chaitanya Pramod Feed">
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<script>
+  document.documentElement.className = document.documentElement.className.replace(/\bno-js\b/g, '') + ' js ';
+</script>
+
+<!-- For all browsers -->
+<link rel="stylesheet" href="https://chaitanyapramod.com/assets/css/main.css">
+
+<!--[if lte IE 9]>
+  <style>
+    /* old IE unsupported flexbox fixes */
+    .greedy-nav .site-title {
+      padding-right: 3em;
+    }
+    .greedy-nav button {
+      position: absolute;
+      top: 0;
+      right: 0;
+      height: 100%;
+    }
+  </style>
+<![endif]-->
+
+
+    <!-- start custom head snippets -->
+
+<!-- insert favicons. use http://realfavicongenerator.net/ -->
+
+<!-- end custom head snippets -->
+  </head>
+
+  <body class="layout--single">
+
+    <!--[if lt IE 9]>
+<div class="notice--danger align-center" style="margin: 0;">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience.</div>
+<![endif]-->
+
+    <div class="masthead">
+  <div class="masthead__inner-wrap">
+    <div class="masthead__menu">
+      <nav id="site-nav" class="greedy-nav">
+        <a class="site-title" href="https://chaitanyapramod.com/">Chaitanya Pramod</a>
+        <ul class="visible-links">
+          
+            
+            <li class="masthead__menu-item">
+              <a href="https://mdnsearch.chaitanyapramod.com/" title="Search MDN Web Docs from Chrome addressbar">MDN Search</a>
+            </li>
+          
+            
+            <li class="masthead__menu-item">
+              <a href="https://findbugs-android.chaitanyapramod.com/" title="Integrate Findbugs in Android projects easily">Findbugs-Android</a>
+            </li>
+          
+        </ul>
+        
+        <button class="search__toggle" type="button">
+          <svg class="icon" width="16" height="16" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 15.99 16">
+            <path d="M15.5,13.12L13.19,10.8a1.69,1.69,0,0,0-1.28-.55l-0.06-.06A6.5,6.5,0,0,0,5.77,0,6.5,6.5,0,0,0,2.46,11.59a6.47,6.47,0,0,0,7.74.26l0.05,0.05a1.65,1.65,0,0,0,.5,1.24l2.38,2.38A1.68,1.68,0,0,0,15.5,13.12ZM6.4,2A4.41,4.41,0,1,1,2,6.4,4.43,4.43,0,0,1,6.4,2Z" transform="translate(-.01)"></path>
+          </svg>
+        </button>
+        
+        <button class="greedy-nav__toggle hidden" type="button">
+          <span class="visually-hidden">Toggle Menu</span>
+          <div class="navicon"></div>
+        </button>
+        <ul class="hidden-links hidden"></ul>
+      </nav>
+    </div>
+  </div>
+</div>
+
+    <div class="initial-content">
+      
+  
+
+
+
+
+
+
+
+
+
+
+
+<div class="page__hero--overlay"
+  style=" background-image: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url('https://chaitanyapramod.com/assets/images/demystifying-butterknife-header.jpg');"
+>
+  
+    <div class="wrapper">
+      <h1 class="page__title" itemprop="headline">
+        
+          Demystifying Butterknife
+
+        
+      </h1>
+      
+        <p class="page__lead">Walk through of Butterknife codebase
+</p>
+      
+      
+      
+    </div>
+  
+  
+    <span class="page__hero-caption">Photo: <a href="https://unsplash.com/photos/1L_m0MpmpEM">Peter Lewis</a>
+</span>
+  
+</div>
+
+
+
+
+
+<div id="main" role="main">
+  
+
+  <article class="page" itemscope itemtype="http://schema.org/CreativeWork">
+    <meta itemprop="headline" content="Demystifying Butterknife">
+    <meta itemprop="description" content="Walk through of Butterknife codebase">
+    <meta itemprop="datePublished" content="March 25, 2018">
+    
+
+    <div class="page__inner-wrap">
+      
+
+      <section class="page__content" itemprop="text">
+        
+          <aside class="sidebar__right">
+            <nav class="toc">
+              <header><h4 class="nav__title"><i class="fas fa-book"></i> Modules</h4></header>
+              <ul class="toc__menu">
+  <li><a href="#annotations">Annotations</a></li>
+  <li><a href="#annotation-processor">Annotation processor</a></li>
+  <li><a href="#runtime-library">Runtime library</a></li>
+  <li><a href="#bonus-the-gradle-plugin">Bonus: The Gradle plugin</a></li>
+</ul>
+            </nav>
+          </aside>
+        
+        <p>Reading source code, especially of the programs and libraries you use, is quite useful in understanding how it is built. Sometimes, it’d be helpful if one can explained how code is structured and how to deconstruct it. Here is my attempt at writing down my thoughts on Butterknife code, which can potentially help new developers.</p>
+
+<hr />
+
+<p>In this post, we will be uncovering the magic and provide a commentary on the library.</p>
+
+<p>Butterknife is majorly composed of three pieces</p>
+<ul>
+  <li>annotations</li>
+  <li>annotation processor</li>
+  <li>runtime library</li>
+</ul>
+
+<h2 id="annotations">Annotations</h2>
+<p>Defines all the <code class="highlighter-rouge">BindView</code> annotation and the like that you use in view code. You can see them all <a href="https://github.com/JakeWharton/butterknife/tree/8.8.1/butterknife-annotations/src/main/java/butterknife">here</a>.</p>
+
+<noscript><pre>400: Invalid request
+</pre></noscript>
+<script src="https://gist.github.com/5e44378e105f6f0f33ccc8b3043a0d91.js?file=Annotations"> </script>
+
+<h2 id="annotation-processor">Annotation processor</h2>
+<p>This is the most interesting part of Butterknife. The implementation is simple(ish). The processor says it’s interested in all the Butterknife annotations. Then the compiler calls the processor with all the elements annotated with these annotations.  It creates the <code class="highlighter-rouge">XActivity_ViewBinding</code> class. Let’s focus on the <code class="highlighter-rouge">BindView</code> annotation, others behave similarly (listeners are slightly different). The crux of <code class="highlighter-rouge">parseBindView</code> is in <a href="https://github.com/JakeWharton/butterknife/blob/8.8.1/butterknife-compiler/src/main/java/butterknife/compiler/ButterKnifeProcessor.java#L475-L499">lines 475-499</a>.</p>
+
+<noscript><pre>400: Invalid request
+</pre></noscript>
+<script src="https://gist.github.com/5e44378e105f6f0f33ccc8b3043a0d91.js?file=ButterKnifeProcessor-parseBindView.java"> </script>
+
+<p>Here is a <a href="https://github.com/ChaitanyaPramod/ButterknifeDemo/blob/master/build/generated/source/apt/release/com/chaitanyapramod/butterknifedemo/MainActivity_ViewBinding.java">sample _ViewBinding class</a> generated by the processor.</p>
+<noscript><pre>400: Invalid request
+</pre></noscript>
+<script src="https://gist.github.com/5e44378e105f6f0f33ccc8b3043a0d91.js?file=GeneratedViewBinding.java"> </script>
+
+<p>Listeners are implemented with little more complexity, mainly in <code class="highlighter-rouge">parseListenerAnnotation</code>, specifically <a href="https://github.com/JakeWharton/butterknife/blob/8.8.1/butterknife-compiler/src/main/java/butterknife/compiler/ButterKnifeProcessor.java#L1139-L1164">lines 1139-1164</a> and <a href="https://github.com/JakeWharton/butterknife/blob/8.8.1/butterknife-compiler/src/main/java/butterknife/compiler/ButterKnifeProcessor.java#L1204-L1213">1204-1213</a>. If we skip all the error-checking, the method <code class="highlighter-rouge">parseListenerAnnotation</code> matches the parameters from the Android listener which are used in the bound method and passes off the required params to <code class="highlighter-rouge">BindingSet.Builder#addMethod</code>.</p>
+
+<noscript><pre>400: Invalid request
+</pre></noscript>
+<script src="https://gist.github.com/5e44378e105f6f0f33ccc8b3043a0d91.js?file=ButterKnifeProcessor-parseListenerAnnotation.java"> </script>
+
+<p>See Jake Wharton’s <a href="https://speakerdeck.com/jakewharton/annotation-processing-boilerplate-destruction-square-waterloo-2014">talk on Annotation Processor</a> to get more details of how one is built.</p>
+
+<h2 id="runtime-library">Runtime library</h2>
+<p>This is a utility library and some sugar. The utilities are used from the generated code and the <code class="highlighter-rouge">Butterknife</code> class. When you call <code class="highlighter-rouge">Butterknife.bind()</code>, it reflectively loads the processor-generated class, which is named <code class="highlighter-rouge">your-view-class-name + "_ViewBinding"</code> and constructs an instance of the class.</p>
+
+<noscript><pre>400: Invalid request
+</pre></noscript>
+<script src="https://gist.github.com/5e44378e105f6f0f33ccc8b3043a0d91.js?file=Butterknife-createBinding.java"> </script>
+
+<p>The <code class="highlighter-rouge">Butterknife</code> class is not really required to make use of the binder. In fact, it adds runtime reflection cost. You can instead use the generated class directly. This is the approach Dagger 2 has taken as well.</p>
+
+<noscript><pre>400: Invalid request
+</pre></noscript>
+<script src="https://gist.github.com/5e44378e105f6f0f33ccc8b3043a0d91.js?file=NoReflection.java"> </script>
+
+<h2 id="bonus-the-gradle-plugin">Bonus: The Gradle plugin</h2>
+<p>The gradle plugin has a very simple function. It lets you use Butterknife in library modules. But why can’t you use Butterknife in library modules like regular application modules? Because the element value in an annotation can only be a constant value for primitive types<sup id="fnref:1"><a href="#fn:1" class="footnote">1</a></sup><sup id="fnref:2"><a href="#fn:2" class="footnote">2</a></sup>. But the <code class="highlighter-rouge">R</code> class generated by Android Gradle plugin doesn’t make the ID values constant in library modules. If libraries had their resource IDs final, then the IDs could collide when building the final apk. So your compile step will complain loudly if you write</p>
+<div class="language-java highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nd">@BindView</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">id</span><span class="o">.</span><span class="na">viewid</span><span class="o">)</span> <span class="n">View</span> <span class="n">idView</span><span class="o">;</span>
+</code></pre></div></div>
+<p>You could not use Butterknife in library modules earlier, that is until Gautam Korlam <a href="https://github.com/JakeWharton/butterknife/pull/613">contributed</a> a Gradle plugin which clones <code class="highlighter-rouge">R</code> as <code class="highlighter-rouge">R2</code> with final values for resources. Now you can use <code class="highlighter-rouge">@BindView(R2.id.viewid) View idView</code> in library modules without worry. Most of the interesting work is done in the <a href="https://github.com/JakeWharton/butterknife/blob/8.8.1/butterknife-gradle-plugin/src/main/java/butterknife/plugin/FinalRClassBuilder.java">class <code class="highlighter-rouge">FinalRClassBuilder</code></a>.</p>
+
+<noscript><pre>400: Invalid request
+</pre></noscript>
+<script src="https://gist.github.com/5e44378e105f6f0f33ccc8b3043a0d91.js?file=FinalRClassBuilder.java"> </script>
+
+<hr />
+
+<p>In addition, there’s a module for Android lint checks which I’m not covering here.</p>
+
+<p>Would readers be interested in a walk through building a basic version of Butterknife from scratch?</p>
+
+<hr />
+
+<p>Thanks to <a href="https://twitter.com/yashasvigirdhar">Yashasvi Girdhar</a> for reading drafts of the post.</p>
+
+<div class="footnotes">
+  <ol>
+    <li id="fn:1">
+      <p><a href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.28">https://docs.oracle.com/javase/specs/jls/se8/html/jls-15.html#jls-15.28</a> <a href="#fnref:1" class="reversefootnote">&#8617;</a></p>
+    </li>
+    <li id="fn:2">
+      <p><a href="https://docs.oracle.com/javase/specs/jls/se8/html/jls-9.html#jls-ElementValue">https://docs.oracle.com/javase/specs/jls/se8/html/jls-9.html#jls-ElementValue</a> <a href="#fnref:2" class="reversefootnote">&#8617;</a></p>
+    </li>
+  </ol>
+</div>
+
+        
+      </section>
+
+      <footer class="page__meta">
+        
+        
+
+
+        
+          <p class="page__date"><strong><i class="fas fa-fw fa-calendar-alt" aria-hidden="true"></i> Updated:</strong> <time datetime="2018-03-25T20:00:00+05:30">March 25, 2018</time></p>
+        
+      </footer>
+
+      
+
+      
+  <nav class="pagination">
+    
+      <a href="https://chaitanyapramod.com/blog/indispensable-document-for-modern-manager" class="pagination--pager" title="The Indespensable Document for the Modern Manager
+">Previous</a>
+    
+    
+      <a href="#" class="pagination--pager disabled">Next</a>
+    
+  </nav>
+
+    </div>
+
+    
+      <div class="page__comments">
+  
+  
+      <h4 class="page__comments-title">Comments</h4>
+      <section id="disqus_thread"></section>
+    
+</div>
+    
+  </article>
+
+  
+  
+    <div class="page__related">
+      <h4 class="page__related-title">You May Also Enjoy</h4>
+      <div class="grid__wrapper">
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://firstround.com/review/the-indispensable-document-for-the-modern-manager/">The Indespensable Document for the Modern Manager
+</a> <a href="https://chaitanyapramod.com/blog/indispensable-document-for-modern-manager" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">User guide is one of the most powerful ideas for managers
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="http://www.lettersofnote.com/2011/07/internet-tidal-wave.html">The Internet Tidal Wave
+</a> <a href="https://chaitanyapramod.com/blog/internet-tidal-wave" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Bill Gates’s memo predicting the direction of internet evolution and the peril of not being an internet-player
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="https://docs.google.com/document/d/1fwg-NsMKYtYxeEWe82rISIHjNrtdqonfiHgp8-PQ7m8/edit">Dagger 2.0 Proposal
+</a> <a href="https://chaitanyapramod.com/blog/dagger-2-proposal" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Historically significant document proposing Dagger 2 design from Greg Kick
+</p>
+  </article>
+</div>
+        
+          
+
+
+
+<div class="grid__item">
+  <article class="archive__item" itemscope itemtype="http://schema.org/CreativeWork">
+    
+    <h2 class="archive__item-title" itemprop="headline">
+      
+        <a href="https://chaitanyapramod.com/blog/understanding-es" rel="permalink">Understanding Elasticsearch bottom up
+</a>
+      
+    </h2>
+    
+    <p class="archive__item-excerpt" itemprop="description">Notes from learning the basic working of Elasticsearch
+</p>
+  </article>
+</div>
+        
+      </div>
+    </div>
+  
+  
+</div>
+
+    </div>
+
+    
+      <div class="search-content">
+        <div class="search-content__inner-wrap"><input type="text" id="search" class="search-input" tabindex="-1" placeholder="Enter your search term..." />
+    <div id="results" class="results"></div></div>
+      </div>
+    
+
+    <div class="page__footer">
+      <footer>
+        <!-- start custom footer snippets -->
+
+<!-- end custom footer snippets -->
+        <div class="page__footer-follow">
+  <ul class="social-icons">
+    
+    
+      <li><a href="https://twitter.com/ChaitanyaPramod"><i class="fab fa-fw fa-twitter-square" aria-hidden="true"></i> Twitter</a></li>
+    
+    
+      <li><a href="https://www.facebook.com/ChaitanyaPramod"><i class="fab fa-fw fa-facebook-square" aria-hidden="true"></i> Facebook</a></li>
+    
+    
+      <li><a href="https://github.com/ChaitanyaPramod"><i class="fab fa-fw fa-github" aria-hidden="true"></i> GitHub</a></li>
+    
+    
+    
+    <li><a href="https://feeds.feedburner.com/ChaitanyaPramod"><i class="fas fa-fw fa-rss-square" aria-hidden="true"></i> Feed</a></li>
+  </ul>
+</div>
+
+<div class="page__footer-copyright">&copy; 2018 Chaitanya Pramod. Powered by <a href="https://jekyllrb.com" rel="nofollow">Jekyll</a> &amp; <a href="https://mademistakes.com/work/minimal-mistakes-jekyll-theme/" rel="nofollow">Minimal Mistakes</a>.</div>
+
+      </footer>
+    </div>
+
+    
+  <script src="https://chaitanyapramod.com/assets/js/main.min.js"></script>
+  <script src="https://use.fontawesome.com/releases/v5.0.6/js/all.js"></script>
+
+
+
+
+<script src="https://chaitanyapramod.com/assets/js/lunr/lunr.min.js"></script>
+<script src="https://chaitanyapramod.com/assets/js/lunr/lunr-store.js"></script>
+<script src="https://chaitanyapramod.com/assets/js/lunr/lunr-en.js"></script>
+
+
+
+
+  <script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-29122928-4', 'auto');
+  ga('send', 'pageview');
+</script>
+
+
+
+
+
+
+    
+  <script>
+    var disqus_config = function () {
+      this.page.url = "https://chaitanyapramod.com/blog/demystifying-butterknife";  // Replace PAGE_URL with your page's canonical URL variable
+      this.page.identifier = "/blog/demystifying-butterknife"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    (function() { // DON'T EDIT BELOW THIS LINE
+      var d = document, s = d.createElement('script');
+      s.src = 'https://chaitanyapramod.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+
+
+  
+
+
+
+  </body>
+</html>
