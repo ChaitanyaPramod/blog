@@ -18,7 +18,7 @@
   color: inherit; }
 
 /*!
- * Minimal Mistakes Jekyll Theme 4.10.0 by Michael Rose
+ * Minimal Mistakes Jekyll Theme 4.11.1 by Michael Rose
  * Copyright 2013-2018 Michael Rose - mademistakes.com | @mmistakes
  * Licensed under MIT (https://github.com/mmistakes/minimal-mistakes/blob/master/LICENSE.txt)
 */
@@ -3169,6 +3169,58 @@ a.reversefootnote {
     text-decoration: none;
     color: #0000bf; }
 
+.taxonomy__section {
+  margin-bottom: 2em;
+  padding-bottom: 1em; }
+  .taxonomy__section:not(:last-child) {
+    border-bottom: solid 1px #bfbfbf; }
+  .taxonomy__section .archive__item-title {
+    margin-top: 0; }
+  .taxonomy__section .archive__subtitle {
+    clear: both;
+    border: 0; }
+  .taxonomy__section + .taxonomy__section {
+    margin-top: 2em; }
+
+.taxonomy__title {
+  margin-bottom: 0.5em;
+  color: #999999; }
+
+.taxonomy__count {
+  color: gray; }
+
+.taxonomy__index {
+  display: grid;
+  grid-column-gap: 2em;
+  grid-template-columns: repeat(2, 1fr);
+  margin: 1.414em 0;
+  padding: 0;
+  font-size: 0.75em;
+  list-style: none; }
+  @media (min-width: 64em) {
+    .taxonomy__index {
+      grid-template-columns: repeat(3, 1fr); } }
+  .taxonomy__index a {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    padding: 0.25em 0;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    color: inherit;
+    text-decoration: none;
+    border-bottom: 1px solid #bfbfbf; }
+
+.back-to-top {
+  display: block;
+  clear: both;
+  color: gray;
+  font-size: 0.6em;
+  text-transform: uppercase;
+  text-align: right;
+  text-decoration: none; }
+
 /*
    Comments
    ========================================================================== */
@@ -3512,6 +3564,16 @@ a.reversefootnote {
 .archive .feature__item--center,
 .archive .feature__item--right {
   font-size: 1em; }
+
+/*
+   Wide Pages
+   ========================================================================== */
+@media (min-width: 64em) {
+  .wide .archive {
+    padding-right: 0; } }
+@media (min-width: 80em) {
+  .wide .archive {
+    padding-right: 0; } }
 
 /* ==========================================================================
    SIDEBAR
