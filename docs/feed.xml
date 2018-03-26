@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="https://chaitanyapramod.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://chaitanyapramod.com/" rel="alternate" type="text/html" /><updated>2018-03-26T01:18:58+05:30</updated><id>https://chaitanyapramod.com/</id><title type="html">Chaitanya Pramod</title><subtitle></subtitle><author><name>Chaitanya Pramod</name><email>iam@chaitanyapramod.com</email><uri>https://chaitanyapramod.com/</uri></author><entry><title type="html">Demystifying Butterknife</title><link href="https://chaitanyapramod.com/blog/demystifying-butterknife" rel="alternate" type="text/html" title="Demystifying Butterknife" /><published>2018-03-25T20:00:00+05:30</published><updated>2018-03-25T20:00:00+05:30</updated><id>https://chaitanyapramod.com/blog/demystifying-butterknife</id><content type="html" xml:base="https://chaitanyapramod.com/blog/demystifying-butterknife">&lt;p&gt;Reading source code, especially of the programs and libraries you use, is quite useful in understanding how it is built. Sometimes, it’d be helpful if one can explained how code is structured and how to deconstruct it. Here is my attempt at writing down my thoughts on Butterknife code, which can potentially help new developers.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.2">Jekyll</generator><link href="https://chaitanyapramod.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://chaitanyapramod.com/" rel="alternate" type="text/html" /><updated>2018-03-26T15:14:18+05:30</updated><id>https://chaitanyapramod.com/</id><title type="html">Chaitanya Pramod</title><subtitle></subtitle><author><name>Chaitanya Pramod</name><email>iam@chaitanyapramod.com</email><uri>https://chaitanyapramod.com/</uri></author><entry><title type="html">Demystifying Butterknife</title><link href="https://chaitanyapramod.com/blog/demystifying-butterknife" rel="alternate" type="text/html" title="Demystifying Butterknife" /><published>2018-03-25T20:00:00+05:30</published><updated>2018-03-25T20:00:00+05:30</updated><id>https://chaitanyapramod.com/blog/demystifying-butterknife</id><content type="html" xml:base="https://chaitanyapramod.com/blog/demystifying-butterknife">&lt;p&gt;Reading source code, especially of programs and libraries you use, is quite useful in understanding how it is built. Sometimes, it’d be helpful if one can explain how code is structured and how to deconstruct it. Here is my attempt at writing down my thoughts on Butterknife code, which can potentially help new developers.&lt;/p&gt;
 
 &lt;hr /&gt;
 
@@ -6,9 +6,9 @@
 
 &lt;p&gt;Butterknife is majorly composed of three pieces&lt;/p&gt;
 &lt;ul&gt;
-  &lt;li&gt;annotations&lt;/li&gt;
-  &lt;li&gt;annotation processor&lt;/li&gt;
-  &lt;li&gt;runtime library&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#annotations&quot;&gt;annotations&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#annotation-processor&quot;&gt;annotation processor&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;#runtime-library&quot;&gt;runtime library&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;annotations&quot;&gt;Annotations&lt;/h2&gt;
@@ -19,22 +19,30 @@
 &lt;script src=&quot;https://gist.github.com/5e44378e105f6f0f33ccc8b3043a0d91.js?file=Annotations&quot;&gt; &lt;/script&gt;
 
 &lt;h2 id=&quot;annotation-processor&quot;&gt;Annotation processor&lt;/h2&gt;
-&lt;p&gt;This is the most interesting part of Butterknife. The implementation is simple(ish). The processor says it’s interested in all the Butterknife annotations. Then the compiler calls the processor with all the elements annotated with these annotations.  It creates the &lt;code class=&quot;highlighter-rouge&quot;&gt;XActivity_ViewBinding&lt;/code&gt; class. Let’s focus on the &lt;code class=&quot;highlighter-rouge&quot;&gt;BindView&lt;/code&gt; annotation, others behave similarly (listeners are slightly different). The crux of &lt;code class=&quot;highlighter-rouge&quot;&gt;parseBindView&lt;/code&gt; is in &lt;a href=&quot;https://github.com/JakeWharton/butterknife/blob/8.8.1/butterknife-compiler/src/main/java/butterknife/compiler/ButterKnifeProcessor.java#L475-L499&quot;&gt;lines 475-499&lt;/a&gt;.&lt;/p&gt;
-
-&lt;noscript&gt;&lt;pre&gt;400: Invalid request
-&lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/5e44378e105f6f0f33ccc8b3043a0d91.js?file=ButterKnifeProcessor-parseBindView.java&quot;&gt; &lt;/script&gt;
+&lt;p&gt;This is the most interesting part of Butterknife. The implementation is simple(ish). The processor &lt;a href=&quot;https://github.com/JakeWharton/butterknife/blob/8.8.1/butterknife-compiler/src/main/java/butterknife/compiler/ButterKnifeProcessor.java#L164-L170&quot;&gt;says it’s interested&lt;/a&gt; in all the Butterknife annotations. Then the compiler &lt;a href=&quot;https://github.com/JakeWharton/butterknife/blob/8.8.1/butterknife-compiler/src/main/java/butterknife/compiler/ButterKnifeProcessor.java#L193-L209&quot;&gt;calls the processor&lt;/a&gt; with all the elements annotated with these annotations.  It creates the &lt;code class=&quot;highlighter-rouge&quot;&gt;XActivity_ViewBinding&lt;/code&gt; class.&lt;/p&gt;
 
 &lt;p&gt;Here is a &lt;a href=&quot;https://github.com/ChaitanyaPramod/ButterknifeDemo/blob/master/build/generated/source/apt/release/com/chaitanyapramod/butterknifedemo/MainActivity_ViewBinding.java&quot;&gt;sample _ViewBinding class&lt;/a&gt; generated by the processor.&lt;/p&gt;
 &lt;noscript&gt;&lt;pre&gt;400: Invalid request
 &lt;/pre&gt;&lt;/noscript&gt;
 &lt;script src=&quot;https://gist.github.com/5e44378e105f6f0f33ccc8b3043a0d91.js?file=GeneratedViewBinding.java&quot;&gt; &lt;/script&gt;
 
+&lt;p&gt;Let’s focus on the &lt;code class=&quot;highlighter-rouge&quot;&gt;BindView&lt;/code&gt; annotation, others behave similarly (listeners are slightly different). The crux of &lt;code class=&quot;highlighter-rouge&quot;&gt;parseBindView&lt;/code&gt; is in &lt;a href=&quot;https://github.com/JakeWharton/butterknife/blob/8.8.1/butterknife-compiler/src/main/java/butterknife/compiler/ButterKnifeProcessor.java#L475-L499&quot;&gt;lines 475-499&lt;/a&gt;.&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;400: Invalid request
+&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/5e44378e105f6f0f33ccc8b3043a0d91.js?file=ButterKnifeProcessor-parseBindView.java&quot;&gt; &lt;/script&gt;
+
 &lt;p&gt;Listeners are implemented with little more complexity, mainly in &lt;code class=&quot;highlighter-rouge&quot;&gt;parseListenerAnnotation&lt;/code&gt;, specifically &lt;a href=&quot;https://github.com/JakeWharton/butterknife/blob/8.8.1/butterknife-compiler/src/main/java/butterknife/compiler/ButterKnifeProcessor.java#L1139-L1164&quot;&gt;lines 1139-1164&lt;/a&gt; and &lt;a href=&quot;https://github.com/JakeWharton/butterknife/blob/8.8.1/butterknife-compiler/src/main/java/butterknife/compiler/ButterKnifeProcessor.java#L1204-L1213&quot;&gt;1204-1213&lt;/a&gt;. If we skip all the error-checking, the method &lt;code class=&quot;highlighter-rouge&quot;&gt;parseListenerAnnotation&lt;/code&gt; matches the parameters from the Android listener which are used in the bound method and passes off the required params to &lt;code class=&quot;highlighter-rouge&quot;&gt;BindingSet.Builder#addMethod&lt;/code&gt;.&lt;/p&gt;
 
 &lt;noscript&gt;&lt;pre&gt;400: Invalid request
 &lt;/pre&gt;&lt;/noscript&gt;
 &lt;script src=&quot;https://gist.github.com/5e44378e105f6f0f33ccc8b3043a0d91.js?file=ButterKnifeProcessor-parseListenerAnnotation.java&quot;&gt; &lt;/script&gt;
+
+&lt;p&gt;Both these methods collect all the bindings into a &lt;code class=&quot;highlighter-rouge&quot;&gt;BindingSet&lt;/code&gt; per type. Once a &lt;code class=&quot;highlighter-rouge&quot;&gt;Type&lt;/code&gt; is processed, all these bindings are flushed to a &lt;code class=&quot;highlighter-rouge&quot;&gt;JavaFile&lt;/code&gt; &lt;code class=&quot;highlighter-rouge&quot;&gt;X_ViewBinding.java&lt;/code&gt;&lt;/p&gt;
+
+&lt;noscript&gt;&lt;pre&gt;400: Invalid request
+&lt;/pre&gt;&lt;/noscript&gt;
+&lt;script src=&quot;https://gist.github.com/fe42973e8c983563c86ade8d070daa7f.js&quot;&gt; &lt;/script&gt;
 
 &lt;p&gt;See Jake Wharton’s &lt;a href=&quot;https://speakerdeck.com/jakewharton/annotation-processing-boilerplate-destruction-square-waterloo-2014&quot;&gt;talk on Annotation Processor&lt;/a&gt; to get more details of how one is built.&lt;/p&gt;
 
@@ -52,7 +60,7 @@
 &lt;script src=&quot;https://gist.github.com/5e44378e105f6f0f33ccc8b3043a0d91.js?file=NoReflection.java&quot;&gt; &lt;/script&gt;
 
 &lt;h2 id=&quot;bonus-the-gradle-plugin&quot;&gt;Bonus: The Gradle plugin&lt;/h2&gt;
-&lt;p&gt;The gradle plugin has a very simple function. It lets you use Butterknife in library modules. But why can’t you use Butterknife in library modules like regular application modules? Because the element value in an annotation can only be a constant value for primitive types&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;. But the &lt;code class=&quot;highlighter-rouge&quot;&gt;R&lt;/code&gt; class generated by Android Gradle plugin doesn’t make the ID values constant in library modules. If libraries had their resource IDs final, then the IDs could collide when building the final apk. So your compile step will complain loudly if you write&lt;/p&gt;
+&lt;p&gt;The gradle plugin has a very simple function. It lets you use Butterknife in library modules. But why can’t you use Butterknife in library modules like regular application modules? Because the element value in an annotation can only be a constant value for primitive types&lt;sup id=&quot;fnref:1&quot;&gt;&lt;a href=&quot;#fn:1&quot; class=&quot;footnote&quot;&gt;1&lt;/a&gt;&lt;/sup&gt;&lt;sup id=&quot;fnref:2&quot;&gt;&lt;a href=&quot;#fn:2&quot; class=&quot;footnote&quot;&gt;2&lt;/a&gt;&lt;/sup&gt;. But the &lt;code class=&quot;highlighter-rouge&quot;&gt;R&lt;/code&gt; class generated by Android Gradle plugin doesn’t make the ID values constant in library modules. If libraries had their resource IDs final, then the IDs could collide when building the final APK. So your compile step will complain loudly if you write&lt;/p&gt;
 &lt;div class=&quot;language-java highlighter-rouge&quot;&gt;&lt;div class=&quot;highlight&quot;&gt;&lt;pre class=&quot;highlight&quot;&gt;&lt;code&gt;&lt;span class=&quot;nd&quot;&gt;@BindView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;n&quot;&gt;R&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;id&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;na&quot;&gt;viewid&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;View&lt;/span&gt; &lt;span class=&quot;n&quot;&gt;idView&lt;/span&gt;&lt;span class=&quot;o&quot;&gt;;&lt;/span&gt;
 &lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/div&gt;
 &lt;p&gt;You could not use Butterknife in library modules earlier, that is until Gautam Korlam &lt;a href=&quot;https://github.com/JakeWharton/butterknife/pull/613&quot;&gt;contributed&lt;/a&gt; a Gradle plugin which clones &lt;code class=&quot;highlighter-rouge&quot;&gt;R&lt;/code&gt; as &lt;code class=&quot;highlighter-rouge&quot;&gt;R2&lt;/code&gt; with final values for resources. Now you can use &lt;code class=&quot;highlighter-rouge&quot;&gt;@BindView(R2.id.viewid) View idView&lt;/code&gt; in library modules without worry. Most of the interesting work is done in the &lt;a href=&quot;https://github.com/JakeWharton/butterknife/blob/8.8.1/butterknife-gradle-plugin/src/main/java/butterknife/plugin/FinalRClassBuilder.java&quot;&gt;class &lt;code class=&quot;highlighter-rouge&quot;&gt;FinalRClassBuilder&lt;/code&gt;&lt;/a&gt;.&lt;/p&gt;
@@ -63,13 +71,15 @@
 
 &lt;hr /&gt;
 
-&lt;p&gt;In addition, there’s a module for Android lint checks which I’m not covering here.&lt;/p&gt;
+&lt;p&gt;I hope you’re now comfortable venturing into the source code of Butterknife armed with this knowledge.&lt;/p&gt;
 
-&lt;p&gt;Would readers be interested in a walk through building a basic version of Butterknife from scratch?&lt;/p&gt;
+&lt;p&gt;Tip: Install &lt;a href=&quot;https://chrome.google.com/webstore/detail/insightio-for-github/pmhfgjjhhomfplgmbalncpcohgeijonh&quot;&gt;Insight.io for Github&lt;/a&gt; to add IDE-like navigation capabilities to Github for pleasant code reading.&lt;/p&gt;
+
+&lt;p&gt;For the next post, would readers be interested in a walk through building a basic version of Butterknife from scratch?&lt;/p&gt;
 
 &lt;hr /&gt;
 
-&lt;p&gt;Thanks to &lt;a href=&quot;https://twitter.com/yashasvigirdhar&quot;&gt;Yashasvi Girdhar&lt;/a&gt; for reading drafts of the post.&lt;/p&gt;
+&lt;p&gt;&lt;small&gt;Thanks to &lt;a href=&quot;https://1bucketlist.blogspot.com&quot;&gt;Yashasvi Girdhar&lt;/a&gt; for reading drafts of the post.&lt;/small&gt;&lt;/p&gt;
 
 &lt;div class=&quot;footnotes&quot;&gt;
   &lt;ol&gt;
