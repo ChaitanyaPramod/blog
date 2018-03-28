@@ -229,11 +229,9 @@
             </nav>
           </aside>
         
-        <p>Reading source code, especially of programs and libraries you use, is quite useful in understanding how it is built. Sometimes, it’d be helpful if one can explain how code is structured and how to deconstruct it. Here is my attempt at writing down my thoughts on Butterknife code, which can potentially help new developers.</p>
+        <p>As an Android developer, you’re surely heard of Butterknife, may be even used it in countless projects yourself. Have you ever wondered what is behind the magical API of Butterknife. In this post, we unveil the magic and deconstruct its code.</p>
 
 <hr />
-
-<p>In this post, we will be uncovering the magic and provide a commentary on the library.</p>
 
 <p>Butterknife is majorly composed of three pieces</p>
 <ul>
@@ -243,11 +241,11 @@
 </ul>
 
 <h2 id="annotations">Annotations</h2>
-<p>Defines all the <code class="highlighter-rouge">BindView</code> annotation and the like that you use in view code. You can see them all <a href="https://github.com/JakeWharton/butterknife/tree/8.8.1/butterknife-annotations/src/main/java/butterknife">here</a>.</p>
+<p>Defines all the <code class="highlighter-rouge">BindView</code> annotation and the like that you use on fields and methods in view code. You can see them all <a href="https://github.com/JakeWharton/butterknife/tree/8.8.1/butterknife-annotations/src/main/java/butterknife">here</a>.</p>
 
 <noscript><pre>400: Invalid request
 </pre></noscript>
-<script src="https://gist.github.com/5e44378e105f6f0f33ccc8b3043a0d91.js?file=Annotations"> </script>
+<script src="https://gist.github.com/d42925a0ec25c70ea3b701ab5e83ae30.js"> </script>
 
 <h2 id="annotation-processor">Annotation processor</h2>
 <p>This is the most interesting part of Butterknife. The implementation is simple(ish). The processor <a href="https://github.com/JakeWharton/butterknife/blob/8.8.1/butterknife-compiler/src/main/java/butterknife/compiler/ButterKnifeProcessor.java#L164-L170">says it’s interested</a> in all the Butterknife annotations. Then the compiler <a href="https://github.com/JakeWharton/butterknife/blob/8.8.1/butterknife-compiler/src/main/java/butterknife/compiler/ButterKnifeProcessor.java#L193-L209">calls the processor</a> with all the elements annotated with these annotations.  It creates the <code class="highlighter-rouge">XActivity_ViewBinding</code> class.</p>
@@ -306,7 +304,7 @@
 
 <p>Tip: Install <a href="https://chrome.google.com/webstore/detail/insightio-for-github/pmhfgjjhhomfplgmbalncpcohgeijonh">Insight.io for Github</a> to add IDE-like navigation capabilities to Github for pleasant code reading.</p>
 
-<p>For the next post, would readers be interested in a walk through building a basic version of Butterknife from scratch?</p>
+<p>Look out for the next post where we would be building our own version of Butterknife from scratch.</p>
 
 <hr />
 

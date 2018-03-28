@@ -10,11 +10,9 @@ header:
   overlay_filter: 0.2
   caption: "Photo: [Peter Lewis](https://unsplash.com/photos/1L_m0MpmpEM)"
 ---
-Reading source code, especially of programs and libraries you use, is quite useful in understanding how it is built. Sometimes, it’d be helpful if one can explain how code is structured and how to deconstruct it. Here is my attempt at writing down my thoughts on Butterknife code, which can potentially help new developers.
+As an Android developer, you're surely heard of Butterknife, may be even used it in countless projects yourself. Have you ever wondered what is behind the magical API of Butterknife. In this post, we unveil the magic and deconstruct its code.
 
 ***
-
-In this post, we will be uncovering the magic and provide a commentary on the library.
 
 Butterknife is majorly composed of three pieces
 * [annotations](#annotations)
@@ -22,9 +20,9 @@ Butterknife is majorly composed of three pieces
 * [runtime library](#runtime-library)
 
 ## Annotations
-Defines all the `BindView` annotation and the like that you use in view code. You can see them all [here](https://github.com/JakeWharton/butterknife/tree/8.8.1/butterknife-annotations/src/main/java/butterknife).
+Defines all the `BindView` annotation and the like that you use on fields and methods in view code. You can see them all [here](https://github.com/JakeWharton/butterknife/tree/8.8.1/butterknife-annotations/src/main/java/butterknife).
 
-{% gist 5e44378e105f6f0f33ccc8b3043a0d91 Annotations %}
+{% gist d42925a0ec25c70ea3b701ab5e83ae30 %}
 
 ## Annotation processor
 This is the most interesting part of Butterknife. The implementation is simple(ish). The processor [says it’s interested](https://github.com/JakeWharton/butterknife/blob/8.8.1/butterknife-compiler/src/main/java/butterknife/compiler/ButterKnifeProcessor.java#L164-L170) in all the Butterknife annotations. Then the compiler [calls the processor](https://github.com/JakeWharton/butterknife/blob/8.8.1/butterknife-compiler/src/main/java/butterknife/compiler/ButterKnifeProcessor.java#L193-L209) with all the elements annotated with these annotations.  It creates the `XActivity_ViewBinding` class.
@@ -70,7 +68,7 @@ I hope you’re now comfortable venturing into the source code of Butterknife ar
 
 Tip: Install [Insight.io for Github](https://chrome.google.com/webstore/detail/insightio-for-github/pmhfgjjhhomfplgmbalncpcohgeijonh) to add IDE-like navigation capabilities to Github for pleasant code reading.
 
-For the next post, would readers be interested in a walk through building a basic version of Butterknife from scratch?
+Look out for the next post where we would be building our own version of Butterknife from scratch.
 
 ***
 

@@ -1,8 +1,6 @@
-<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="https://chaitanyapramod.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://chaitanyapramod.com/" rel="alternate" type="text/html" /><updated>2018-03-27T15:28:01+05:30</updated><id>https://chaitanyapramod.com/</id><title type="html">Chaitanya Pramod</title><subtitle></subtitle><author><name>Chaitanya Pramod</name><email>iam@chaitanyapramod.com</email><uri>https://chaitanyapramod.com/</uri></author><entry><title type="html">Demystifying Butterknife</title><link href="https://chaitanyapramod.com/blog/demystifying-butterknife" rel="alternate" type="text/html" title="Demystifying Butterknife" /><published>2018-03-25T20:00:00+05:30</published><updated>2018-03-25T20:00:00+05:30</updated><id>https://chaitanyapramod.com/blog/demystifying-butterknife</id><content type="html" xml:base="https://chaitanyapramod.com/blog/demystifying-butterknife">&lt;p&gt;Reading source code, especially of programs and libraries you use, is quite useful in understanding how it is built. Sometimes, it’d be helpful if one can explain how code is structured and how to deconstruct it. Here is my attempt at writing down my thoughts on Butterknife code, which can potentially help new developers.&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8"?><feed xmlns="http://www.w3.org/2005/Atom" ><generator uri="https://jekyllrb.com/" version="3.7.3">Jekyll</generator><link href="https://chaitanyapramod.com/feed.xml" rel="self" type="application/atom+xml" /><link href="https://chaitanyapramod.com/" rel="alternate" type="text/html" /><updated>2018-03-28T09:01:11+05:30</updated><id>https://chaitanyapramod.com/</id><title type="html">Chaitanya Pramod</title><subtitle></subtitle><author><name>Chaitanya Pramod</name><email>iam@chaitanyapramod.com</email><uri>https://chaitanyapramod.com/</uri></author><entry><title type="html">Demystifying Butterknife</title><link href="https://chaitanyapramod.com/blog/demystifying-butterknife" rel="alternate" type="text/html" title="Demystifying Butterknife" /><published>2018-03-25T20:00:00+05:30</published><updated>2018-03-25T20:00:00+05:30</updated><id>https://chaitanyapramod.com/blog/demystifying-butterknife</id><content type="html" xml:base="https://chaitanyapramod.com/blog/demystifying-butterknife">&lt;p&gt;As an Android developer, you’re surely heard of Butterknife, may be even used it in countless projects yourself. Have you ever wondered what is behind the magical API of Butterknife. In this post, we unveil the magic and deconstruct its code.&lt;/p&gt;
 
 &lt;hr /&gt;
-
-&lt;p&gt;In this post, we will be uncovering the magic and provide a commentary on the library.&lt;/p&gt;
 
 &lt;p&gt;Butterknife is majorly composed of three pieces&lt;/p&gt;
 &lt;ul&gt;
@@ -12,11 +10,11 @@
 &lt;/ul&gt;
 
 &lt;h2 id=&quot;annotations&quot;&gt;Annotations&lt;/h2&gt;
-&lt;p&gt;Defines all the &lt;code class=&quot;highlighter-rouge&quot;&gt;BindView&lt;/code&gt; annotation and the like that you use in view code. You can see them all &lt;a href=&quot;https://github.com/JakeWharton/butterknife/tree/8.8.1/butterknife-annotations/src/main/java/butterknife&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Defines all the &lt;code class=&quot;highlighter-rouge&quot;&gt;BindView&lt;/code&gt; annotation and the like that you use on fields and methods in view code. You can see them all &lt;a href=&quot;https://github.com/JakeWharton/butterknife/tree/8.8.1/butterknife-annotations/src/main/java/butterknife&quot;&gt;here&lt;/a&gt;.&lt;/p&gt;
 
 &lt;noscript&gt;&lt;pre&gt;400: Invalid request
 &lt;/pre&gt;&lt;/noscript&gt;
-&lt;script src=&quot;https://gist.github.com/5e44378e105f6f0f33ccc8b3043a0d91.js?file=Annotations&quot;&gt; &lt;/script&gt;
+&lt;script src=&quot;https://gist.github.com/d42925a0ec25c70ea3b701ab5e83ae30.js&quot;&gt; &lt;/script&gt;
 
 &lt;h2 id=&quot;annotation-processor&quot;&gt;Annotation processor&lt;/h2&gt;
 &lt;p&gt;This is the most interesting part of Butterknife. The implementation is simple(ish). The processor &lt;a href=&quot;https://github.com/JakeWharton/butterknife/blob/8.8.1/butterknife-compiler/src/main/java/butterknife/compiler/ButterKnifeProcessor.java#L164-L170&quot;&gt;says it’s interested&lt;/a&gt; in all the Butterknife annotations. Then the compiler &lt;a href=&quot;https://github.com/JakeWharton/butterknife/blob/8.8.1/butterknife-compiler/src/main/java/butterknife/compiler/ButterKnifeProcessor.java#L193-L209&quot;&gt;calls the processor&lt;/a&gt; with all the elements annotated with these annotations.  It creates the &lt;code class=&quot;highlighter-rouge&quot;&gt;XActivity_ViewBinding&lt;/code&gt; class.&lt;/p&gt;
@@ -75,7 +73,7 @@
 
 &lt;p&gt;Tip: Install &lt;a href=&quot;https://chrome.google.com/webstore/detail/insightio-for-github/pmhfgjjhhomfplgmbalncpcohgeijonh&quot;&gt;Insight.io for Github&lt;/a&gt; to add IDE-like navigation capabilities to Github for pleasant code reading.&lt;/p&gt;
 
-&lt;p&gt;For the next post, would readers be interested in a walk through building a basic version of Butterknife from scratch?&lt;/p&gt;
+&lt;p&gt;Look out for the next post where we would be building our own version of Butterknife from scratch.&lt;/p&gt;
 
 &lt;hr /&gt;
 
